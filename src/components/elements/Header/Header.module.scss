@@ -1,0 +1,29 @@
+.main {
+  background-color: rgb(0, 0, 0);
+
+  .mainImage {
+    background: url(https://goldapple.ru/media/catalog/category/Category_1920_06.08.22_NEW.jpg)
+      center center/cover no-repeat;
+    z-index: -3;
+    margin-top: -120px;
+    height: 20%;
+    opacity: 0.8;
+    height: 15%;
+  }
+  .header {
+    margin-top: -10%;
+    margin-left: 55%;
+    z-index: 20px;
+    position: absolute;
+    color: white;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+  }
+  .mainContent {
+    padding-top: 25%;
+    margin-left: 50%;
+    padding-bottom: 5%;
+  }
+}

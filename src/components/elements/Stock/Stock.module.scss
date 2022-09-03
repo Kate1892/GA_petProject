@@ -1,0 +1,22 @@
+.main {
+  width: 100%;
+  display: flex;
+  margin: auto;
+  padding-left: 230px;
+  overflow-x: hidden;
+  margin: 20px 0;
+
+  .window {
+    width: 100%;
+  }
+
+  .pagesContainer {
+    margin-left: 3%;
+    width: 100%;
+    display: flex;
+    transition: translate;
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+  }
+}

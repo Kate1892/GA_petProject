@@ -1,0 +1,75 @@
+.formInput {
+  border: none;
+  border-bottom: 1px solid rgb(164, 164, 164);
+  width: 100%;
+  height: 50px;
+  letter-spacing: 2px;
+  padding: 5px;
+  font-size: 16px;
+  color: rgb(77, 77, 77);
+  position: relative;
+
+  &:hover {
+    border-bottom: 0.1px solid black;
+  }
+  &:focus {
+    outline: none;
+    border-bottom: 0.1px solid black;
+  }
+}
+@media screen and (max-width: 1130px) {
+  .main {
+    width: 100% !important;
+    margin-left: 0% !important;
+    margin-top: 70px;
+  }
+}
+
+.main {
+  box-shadow: -4px 1px 8px 1px rgba(0, 0, 0, 0.12);
+  margin-left: 55%;
+  background-color: #fff;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 199;
+  width: 45%;
+  overflow: hidden;
+
+  .closeIcon {
+    margin-left: 90%;
+    margin-top: 5%;
+  }
+
+  .content {
+    padding: 10% 20%;
+    margin-left: 0;
+
+    .button {
+      margin-top: 50px;
+      width: 100%;
+      height: 50px;
+      color: white;
+      background: black;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .header {
+      font-weight: 500;
+      font-size: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer {
+      margin-top: 45%;
+      margin-left: 5px;
+      font-size: 13px;
+      color: #c6b09f;
+      > a {
+        color: #c6b09f;
+        text-decoration: underline !important;
+      }
+    }
+  }
+}

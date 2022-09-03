@@ -1,0 +1,11 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  font-family: 'Almarai', Roboto, system-ui, Tahoma, sans-serif;
+  scroll-behavior: smooth;
+  text-decoration: none;
+}

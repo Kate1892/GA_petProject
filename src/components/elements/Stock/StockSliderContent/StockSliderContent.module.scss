@@ -1,0 +1,17 @@
+.main {
+  width: 95%;
+  position: relative;
+  height: 600px;
+
+  .info {
+    position: absolute;
+    margin-top: -45px;
+    margin-left: 60px;
+    width: 100%;
+
+    .header {
+      font-size: 55px;
+      font-weight: bold;
+    }
+  }
+}

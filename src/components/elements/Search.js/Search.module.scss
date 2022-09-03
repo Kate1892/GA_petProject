@@ -1,0 +1,70 @@
+.main {
+  background: white;
+  z-index: 99;
+  height: 100vh;
+
+  .inputRoot {
+    width: 100%;
+    font-size: 50px;
+    position: relative;
+    margin-bottom: 10%;
+    margin-left: 50%;
+
+    .input {
+      width: 40%;
+      padding: 12px 20px;
+      font-size: 65px;
+      color: black;
+      font-weight: 650;
+
+      &::placeholder {
+        opacity: 0.2;
+        font-weight: 650;
+      }
+
+      &:focus {
+        outline: none;
+        opacity: 1;
+        color: black;
+      }
+    }
+
+    .icon {
+      opacity: 0.1;
+
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .content {
+    height: 100vh;
+    max-height: 400px;
+    margin: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .productsGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: 40px;
+      grid-row-gap: 0px;
+    }
+
+    .labelsGrid {
+      margin-left: 10%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 60px;
+      grid-row-gap: 0px;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.block {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  .imageSlide {
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 3%;
+
+    .images {
+      // background: url(https://goldapple.ru/web_scripts/webp/catalog/product/cache/fb5d06f7acfb2f26f85333624ccbfb5e/3/6/3605970630881_1_vkejduazvh6qhtqm.jpg?quality=95)
+      //   center center/cover no-repeat;
+      width: 80px;
+      height: 80px;
+      margin: 10px;
+      border: 1px black solid;
+    }
+  }
+  .topleft {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    margin-left: 4%;
+  }
+
+  .button {
+    height: 58px;
+    width: 244px;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+    letter-spacing: 2px;
+    overflow: hidden;
+    padding: 15px 30px;
+    transition: color 1s;
+
+    .buttonContent {
+      margin-left: -7px;
+      text-align: center;
+      align-items: center;
+      z-index: 3;
+    }
+  }
+  .price {
+    font-size: 30px;
+
+    .newprice {
+      margin-right: 8px;
+    }
+
+    .oldprice {
+      opacity: 0.3;
+      text-decoration: line-through;
+    }
+  }
+}

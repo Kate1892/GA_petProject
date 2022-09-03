@@ -1,0 +1,33 @@
+@keyframes anim {
+  from {
+    color: black;
+  }
+  to {
+    color: rgb(199, 172, 137);
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  margin-left: 50%;
+  margin-top: 50px;
+  color: black;
+
+  .name {
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 600;
+
+    &:hover {
+      animation: anim 0.2s linear 0.1s forwards;
+    }
+  }
+
+  .arrow {
+    cursor: pointer;
+    margin: auto;
+    padding: 15px;
+    color: black;
+  }
+}

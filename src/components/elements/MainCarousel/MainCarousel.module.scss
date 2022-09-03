@@ -1,0 +1,57 @@
+.main {
+  background-color: rgb(0, 0, 0);
+  margin-top: -120px;
+
+  .mainIMG {
+    width: 100%;
+    margin-top: -120px;
+    opacity: 0.8;
+  }
+
+  .mainContent {
+    color: white;
+    position: absolute;
+    margin-top: -25%;
+    margin-left: 55%;
+
+    .button {
+      height: 58px;
+      width: 244px;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      letter-spacing: 2px;
+      overflow: hidden;
+
+      transition: color 1s;
+
+      .buttonContent {
+      }
+
+      &:hover {
+        color: black;
+      }
+
+      &::before {
+        //z-index: -1;
+
+        margin: 0;
+        padding: -15px -33px !important;
+        margin: -17px -28px !important;
+        content: ' ';
+        position: absolute;
+        width: 0px;
+        height: 58px;
+        background-color: white;
+        transition: width 0.5s;
+        color: black;
+      }
+
+      &:hover::before {
+        width: 247px;
+        margin: -17px -28px !important;
+      }
+    }
+  }
+}

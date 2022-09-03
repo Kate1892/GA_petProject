@@ -1,0 +1,23 @@
+.main {
+  li {
+    a {
+      cursor: pointer;
+      color: black;
+    }
+    :global {
+      .next {
+        visibility: visible;
+      }
+    }
+  }
+  :global {
+    visibility: hidden;
+    .next {
+      visibility: visible;
+    }
+
+    .previous {
+      visibility: visible;
+    }
+  }
+}

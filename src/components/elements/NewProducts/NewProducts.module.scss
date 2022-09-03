@@ -1,0 +1,43 @@
+@import '../mixins';
+
+.newProduct {
+  position: relative;
+  margin: 40px;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: black;
+
+    .name {
+      cursor: pointer;
+      font-size: 30px;
+      font-weight: 600;
+
+      &:hover {
+        animation: anim 0.2s linear 0.1s forwards;
+      }
+    }
+  }
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: px;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 915px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 590px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

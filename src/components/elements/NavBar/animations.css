@@ -1,0 +1,116 @@
+@keyframes form {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+    /* transform: translateX(55%); */
+  }
+}
+@keyframes sidebar {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+    /* transform: translateX(55%); */
+  }
+}
+
+@keyframes vert {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  0% {
+    margin-top: 730px;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    /* display: block;
+    opacity: 0;
+    visibility: hidden; */
+    /* visibility: hidden;
+    opacity: 0; */
+  }
+  100% {
+    /* display: block;
+    opacity: 1;
+    visibility: visible; */
+    /* opacity: 1; */
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.slideInRight-enter {
+  background-color: white;
+}
+
+.slideInRight-enter-active {
+  animation: form 0.5s forwards;
+  background-color: white;
+}
+
+.slideInRight-exit {
+  background-color: white;
+}
+
+.slideInRight-exit-active {
+  animation: form 0.5s forwards reverse;
+  background-color: white;
+}
+/*  */
+.slideInLeft-enter {
+  background-color: white;
+}
+
+.slideInLeft-enter-active {
+  animation: sidebar 0.5s forwards;
+  background-color: white;
+}
+
+.slideInLeft-exit {
+  background-color: white;
+}
+
+.slideInLeft-exit-active {
+  animation: sidebar 0.5s forwards reverse;
+  background-color: white;
+}
+/*  */
+.vertical-enter {
+  background-color: white;
+}
+
+.vertical-enter-active {
+  animation: vert 0.5s forwards;
+  background-color: white;
+}
+
+.vertical-exit {
+  background-color: white;
+}
+
+.vertical-exit-active {
+  animation: vert 0.5s forwards reverse;
+  background-color: white;
+}
+/*  */
+.slideInDown-enter {
+}
+.slideInDown-enter-active {
+  animation: slideInDown 0.5s;
+}
+.slideInDown-exit {
+}
+.slideInDown-exit-active {
+  animation: slideInDown 0.5s forwards reverse;
+}

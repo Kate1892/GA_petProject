@@ -1,0 +1,51 @@
+.main {
+  margin-left: 55%;
+  background-color: #fff;
+  height: 100%;
+  position: fixed;
+  z-index: 199;
+  width: 45%;
+  overflow: scroll;
+  box-shadow: -4px 1px 8px 1px rgba(0, 0, 0, 0.12);
+
+  .closeIcon {
+    margin-left: 90%;
+    margin-top: 5%;
+  }
+
+  .content {
+    padding: 0% 10%;
+    margin-left: 0;
+
+    .header {
+      font-weight: 630;
+      font-size: 45px;
+      width: 65%;
+    }
+
+    .parent {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 40px;
+      grid-row-gap: 40px;
+    }
+
+    .searchOpen {
+      background: transparent;
+      color: #c6b09f;
+      font-size: 16px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1130px) {
+  .main {
+    width: 100% !important;
+    margin-left: 0% !important;
+    margin-top: 70px;
+  }
+}
