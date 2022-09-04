@@ -1,10 +1,19 @@
+import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import styles from './App.module.scss'
 
 import MainLayout from './MainLayout'
-import FullProductInfo from './Pages/FullProductInfo/FullProductInfo'
 import Main from './Pages/Main/Main'
-import Novinki from './Pages/Novinki/Novinki'
+
+const Novinki = React.lazy(
+  () => import(/*webpackChunkName: "Novinki"*/ './Pages/Novinki/Novinki')
+)
+const FullProductInfo = React.lazy(
+  () =>
+    import(
+      /*webpackChunkName: "FullProductInfo"*/ './Pages/FullProductInfo/FullProductInfo'
+    )
+)
 
 function App() {
   return (
@@ -13,8 +22,23 @@ function App() {
         <Routes>
           <Route path='/' element={<MainLayout />}>
             <Route path='' element={<Main />} />
-            <Route path='novinki' element={<Novinki />} />
-            <Route path=':id' element={<FullProductInfo />} />
+
+            <Route
+              path='novinki'
+              element={
+                <React.Suspense fallback={<div></div>}>
+                  <Novinki />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path=':id'
+              element={
+                <React.Suspense fallback={<div></div>}>
+                  <FullProductInfo />
+                </React.Suspense>
+              }
+            />
           </Route>
         </Routes>
       </div>
