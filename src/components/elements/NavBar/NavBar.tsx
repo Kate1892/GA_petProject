@@ -148,14 +148,7 @@ const NavBar: React.FC = React.memo(() => {
             <div className={color ? styles['slideInDown'] : ''}>
               {/* <div className={styles.header}> */}
               <div className={styles.parent}>
-                <div
-                  style={{
-                    marginLeft: '50px',
-                    display: 'flex',
-                    justifyContent: 'flex-start',
-                    alignItems: 'center',
-                  }}
-                >
+                <div className={styles.Lside}>
                   <span className={styles.location}>
                     <img
                       src={location}
@@ -176,14 +169,7 @@ const NavBar: React.FC = React.memo(() => {
                     />
                   </span>
                 </div>
-                <div
-                  style={{
-                    marginLeft: '50px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                >
+                <div className={styles.centerLogo}>
                   <NavLink className={styles.navLink} to='/'>
                     <img
                       style={{
@@ -196,14 +182,7 @@ const NavBar: React.FC = React.memo(() => {
                     ></img>
                   </NavLink>
                 </div>
-                <div
-                  style={{
-                    marginRight: '50px',
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                    alignItems: 'center',
-                  }}
-                >
+                <div className={styles.Rside}>
                   <ul className={styles.icons}>
                     <li>
                       {searchFormOpen ? (

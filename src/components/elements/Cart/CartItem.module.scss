@@ -49,6 +49,12 @@
           color: white;
         }
       }
+
+      .close {
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
   }
 }

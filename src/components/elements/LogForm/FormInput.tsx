@@ -14,41 +14,39 @@ type Prop = {
 const FormInput: React.FC<Prop> = props => {
   const { ...inputProps } = props
 
-  const getInputNumbers = input => {
-    return input.value.replace(/\D/g, '')
+  const getInputNumbers = (input: EventTarget) => {
+    return (input as HTMLInputElement).value.replace(/\D/g, '')
   }
 
-  const onChange = e => {
-    let input = e.target
+  const onChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
+    console.log('CHANGE')
+    let input = e.currentTarget
     let numbers = getInputNumbers(input)
     let formattedNumber = ''
     let selectionStart = input.selectionStart
 
     if (!numbers) {
-      // setPhoneNumber('')
       return (input.value = '')
     }
-    // } else {
-    //   setPhoneNumber(numbers)
-    // }
 
     if (input.value.length != selectionStart) {
-      console.log('cередина')
-      //редатирование в середине
-      if (input.value[0] != '+') {
-        // Add "+" if input value startswith not "+"
-        var oldSelectionStart = input.selectionStart
+      // if (input.value[0] != '+') {
+      //   var oldSelectionStart = input.selectionStart
+      //   input.value = '+' + input.value
+      //   input.selectionStart = input.selectionEnd = oldSelectionStart + 1
+      // }
 
-        input.value = '+' + input.value
-
-        input.selectionStart = input.selectionEnd = oldSelectionStart + 1
-      }
-
-      if (e.nativeEvent.data && /\D/g.test(e.nativeEvent.data)) {
+      if (
+        (e.nativeEvent as any).data &&
+        /\D/g.test((e.nativeEvent as any).data)
+      ) {
         input.value = numbers
       }
 
-      input.value = formattedNumber
+      props.setFormValues({
+        ...props.formValues,
+        [input.name]: input.value,
+      })
       return
     }
 
@@ -73,33 +71,30 @@ const FormInput: React.FC<Prop> = props => {
     }
     input.value = formattedNumber
 
-    // props.setFormValues({
-    //   ...props.formValues,
-    //   [e.target.name]: e.target.value,
-    // })
-    //  setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    props.setFormValues({
+      ...props.formValues,
+      [input.name]: input.value,
+    })
   }
 
-  //удаление последних символов
-  const onKeyDown = e => {
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log('KEYDOWN')
     const element = e.target as HTMLInputElement
-    let inputValue = e.target.value.replace(/\D/g, '')
+    let inputValue = element.value.replace(/\D/g, '')
 
-    if (e.keyCode === 8 && getInputNumbers(e.target).length == 1) {
-      e.target.value = ''
+    if (e.keyCode === 8 && getInputNumbers(element).length == 1) {
+      element.value = ''
     } else if ([8, 46].indexOf(e.keyCode) > -1 && inputValue.length > 1) {
-      // Prevent when removing service symbols
       let symToClear = ''
       switch (e.keyCode) {
         case 8: // BackSpace key
-          if (e.target.selectionStart) {
-            symToClear = e.target.value[e.target.selectionStart - 1]
+          if (element.selectionStart) {
+            symToClear = element.value[element.selectionStart - 1]
           }
           break
-        case 46:
-          if (e.target.selectionStart) {
-            // Delete key
-            symToClear = e.target.value[e.target.selectionStart]
+        case 46: // Delete key
+          if (element.selectionStart) {
+            symToClear = element.value[element.selectionStart]
           }
           break
       }
@@ -108,11 +103,12 @@ const FormInput: React.FC<Prop> = props => {
 
     props.setFormValues({
       ...props.formValues,
-      [(e.target as HTMLInputElement).name]: e.target.value,
+      [element.name]: element.value,
     })
   }
 
-  const onPaste = e => {
+  const onPaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    console.log('PASTE')
     const element = e.target as HTMLInputElement
 
     let pasted = e?.nativeEvent?.clipboardData?.getData('Text')
@@ -121,23 +117,19 @@ const FormInput: React.FC<Prop> = props => {
 
     if (pasted) {
       if (/\D/g.test(pasted)) {
-        e.target.value = numbers
+        element.value = numbers
+        props.setFormValues({
+          ...props.formValues,
+          [element.name]: element.value,
+        })
         return
       }
     }
-    // props.setFormValues({
-    //   ...props.formValues,
-    //   [e.target.name]: e.target.value,
-    // })
+    props.setFormValues({
+      ...props.formValues,
+      [element.name]: element.value,
+    })
   }
-
-  // useEffect(() => {
-  //   props.setFormValues(JSON.parse(window.localStorage.getItem('formValues')))
-  // }, [])
-
-  // useEffect(() => {
-  //   window.localStorage.setItem('formValues', props.formValues)
-  // }, [props.formValues])
 
   return (
     <>
@@ -150,7 +142,6 @@ const FormInput: React.FC<Prop> = props => {
         onChange={onChange}
         name='phoneNumber'
         value={props.formValues.phoneNumber}
-        //value={e.target.value}
         onKeyDown={onKeyDown}
         onPaste={onPaste}
       ></input>

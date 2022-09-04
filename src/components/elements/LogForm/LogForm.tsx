@@ -3,7 +3,7 @@ import { GrClose } from 'react-icons/gr'
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectLog } from '../../../redux/login/selectors'
-import { setLogFormOpen } from '../../../redux/login/slice'
+import { setLogFormOpen, setPhoneNumber } from '../../../redux/login/slice'
 import { FormInput } from '../..'
 
 type InputProps = {
@@ -60,6 +60,10 @@ const LogForm: React.FC<InputProps> = ({ accIconRef }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
   }
+
+  useEffect(() => {
+    dispatch(setPhoneNumber(formValues.phoneNumber))
+  }, [formValues])
 
   return (
     <div ref={formRef} className={styles.main}>

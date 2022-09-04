@@ -79,7 +79,7 @@ const CartItemBlock: React.FC<ItemProps> = ({
               <div className={styles.items} onClick={onClickPlus}>
                 <span>+</span>
               </div>
-              <div onClick={onClickRemove}>
+              <div onClick={onClickRemove} className={styles.close}>
                 <GrClose size={14} />
               </div>
             </span>

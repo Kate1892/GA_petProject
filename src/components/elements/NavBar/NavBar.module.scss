@@ -1,30 +1,17 @@
 @import '../mixins';
 
-// #overlay {
-//   //position: absolute;
-//   display: none;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background-color: rgba(0, 0, 0, 0.3);
-//   z-index: 100;
-//   width: 100vw;
-//   height: 100vh;
-// }
 #overlay {
-  position: absolute; /* Sit on top of the page content */
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-  z-index: 20; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+  cursor: pointer;
 }
 
 .picter {
@@ -37,6 +24,55 @@
   grid-template-rows: 1fr;
   grid-column-gap: px;
   grid-row-gap: 0px;
+
+  .Lside {
+    margin-left: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .Rside {
+    @extend .Lside;
+    justify-content: flex-end;
+    margin-left: 0;
+    margin-right: 50px;
+  }
+
+  .centerLogo {
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1065px) {
+  .parent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-around;
+
+    .Lside {
+      margin-left: 0;
+    }
+    .Rside {
+      margin-right: 0;
+    }
+    .centerLogo {
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  ul {
+    padding-left: 0;
+  }
+  .centerLogo {
+    // visibility: hidden;
+    display: none;
+  }
 }
 
 .header {
@@ -46,7 +82,6 @@
   position: relative;
   background: transparent;
   border-bottom: 1px rgba(211, 209, 209, 0.7) solid;
-  //border-bottom: 1px rgba(255, 255, 255, 1) solid;
   text-align: center;
   color: black;
   padding-bottom: 20px;
@@ -134,14 +169,6 @@
   top: 0;
   width: 100%;
   z-index: 50;
-  //animation: shortNav 0.2s ease 0s 1;
-  // animation-name: shortNav;
-  // animation-duration: 10s;
-  // animation-timing-function: linear;
-  // animation-delay: 9s;
-  // animation-iteration-count: 1;
-  // animation-direction: normal;
-
   .underline {
     display: none;
   }
@@ -214,50 +241,3 @@
     width: 100%;
   }
 }
-
-// .scroll {
-//     width: 100%;
-//     height: 40px;
-//     z-index: 5;
-//     background: white;
-//     border-bottom: 0.01px rgba(211, 209, 209, 0.5) solid;
-//     text-align: center;
-//     color: black;
-//     padding-bottom: 20px;
-//     transition: position .5s;
-//     position: fixed;
-//     top: 0;
-
-//     &:hover {
-//         background: white
-//     }
-
-//     .flex-container2 {
-//         @include flex-container ();
-//         align-items: center;
-
-//         .icons {
-//             li:hover {
-//                 color: gray;
-//             }
-//         }
-//     }
-
-//     .underline {
-//         display: none;
-//         .navLink {
-//             text-decoration: none;
-//             padding-bottom: 1.2%;
-//             color: black;
-
-//             &:hover {
-//                 border-bottom: 2px solid black;
-//             }
-
-//             .sale:hover {
-//                 color: red;
-//             }
-
-//         }
-//     }
-// }

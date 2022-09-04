@@ -14,9 +14,9 @@ const MainCarousel = () => {
   return (
     <>
       {status === Status.ERROR ? (
-        <div style={{ width: '100%', height: '510px' }}></div>
+        <div style={{ width: '100%', height: '350px' }}></div>
       ) : status === Status.LOADING ? (
-        <div style={{ width: '100%', height: '510px' }}></div>
+        <div style={{ width: '100%', height: '350px' }}></div>
       ) : (
         <div className={styles.main}>
           <Carousel>
